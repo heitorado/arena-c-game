@@ -10,6 +10,8 @@
 #define RESET "\x1B[0m"
 #define NAME_SIZE 40
 
+#define TESTEGIT 1
+
 struct player{
     int x, y;
     // int informações do game, hp, ataque, defesa, pontos...;
