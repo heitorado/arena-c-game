@@ -18,4 +18,4 @@ Compilando e rodando:
 # Rodando client:
 	$ ./client
 	
-O nome dos arquivos podem ser modificados no arquivo makefile
+Os nomes dos arquivos podem ser modificados no arquivo makefile
