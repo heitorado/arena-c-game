@@ -10,8 +10,6 @@
 #define RESET "\x1B[0m"
 #define NAME_SIZE 40
 
-#define TESTEGIT 1
-
 struct player{
     int x, y;
     // int informações do game, hp, ataque, defesa, pontos...;
@@ -72,7 +70,7 @@ int main()
     mov_msg mov; //cria var do tipo mov_msg (manda w,a,s,d)
 
     do{
-       
+
        do
        {
             statusMenu=menuPrincipal(info);
@@ -155,7 +153,7 @@ int main()
                     case 1: //Case 1 - Em batalha
                         system("clear");
                         fseek(PVPIMG,0,SEEK_SET);
-                        while((ch =fgetc(PVPIMG)) != EOF) 
+                        while((ch =fgetc(PVPIMG)) != EOF)
                         {
                             putchar(ch);
                         }
@@ -166,7 +164,7 @@ int main()
                         OPPONENT.y = updt.y;
                         //printStatus(&OPPONENT); //printa status do oponente
                         printBattleStatus(&PLAYER,&OPPONENT); //printa ambos os status
-                        
+
                         if(readTxtFromServer(msg) > 0)
                             printf("%s\n",msg);
 
@@ -195,34 +193,34 @@ int main()
                     	GAMEOVERSCREEN=fopen("data/game_over.txt","rt");
                     	fseek(GAMEOVERSCREEN,0,SEEK_SET);
 
-                        while((ch=fgetc(GAMEOVERSCREEN)) != EOF) 
+                        while((ch=fgetc(GAMEOVERSCREEN)) != EOF)
                         {
                             if(ch=='*')
                             {
                                 printf(BLU);
                                 putchar(ch);
-                                
+
                             }
                             else
                                 if(ch=='>')
-                                {                        
+                                {
                                     printf(YEL);
-                                    putchar(ch);                        
+                                    putchar(ch);
                                 }
                                 else
                                     if (ch==':'||ch=='\\'||ch=='/'||ch=='.'||ch=='('||ch==')'||ch=='_'||ch=='-'||ch=='`')
                                     {
-                                        printf(RED);   
+                                        printf(RED);
                                         putchar(ch);
                                     }
                                     else
-                                    {                        
-                                        printf(RED);   
-                                        putchar(ch);                     
-                                    }                            
+                                    {
+                                        printf(RED);
+                                        putchar(ch);
+                                    }
                         }
-                        printf(RESET"\n");                    	
-                        
+                        printf(RESET"\n");
+
 
                         while(quit <= 0)
                         {
@@ -244,33 +242,33 @@ int main()
                         system("clear");
                         WINSCREEN=fopen("data/win_frame.txt","rt");
                         fseek(WINSCREEN,0,SEEK_SET);
-                        while((ch=fgetc(WINSCREEN)) != EOF) 
+                        while((ch=fgetc(WINSCREEN)) != EOF)
                         {
                             if(ch=='*')
                             {
                                 printf(BLU);
                                 putchar(ch);
-                                
+
                             }
                             else
                                 if(ch=='>')
-                                {                        
+                                {
                                     printf(YEL);
-                                    putchar(ch);                        
+                                    putchar(ch);
                                 }
                                 else
                                     if (ch==':'||ch=='\\'||ch=='/'||ch=='.'||ch=='('||ch==')'||ch=='_'||ch=='-'||ch=='`')
                                     {
-                                        printf(RED);   
+                                        printf(RED);
                                         putchar(ch);
                                     }
                                     else
-                                    {                        
-                                        printf(RED);   
-                                        putchar(ch);                     
-                                    }                            
+                                    {
+                                        printf(RED);
+                                        putchar(ch);
+                                    }
                         }
-                        printf(RESET"\n"); 
+                        printf(RESET"\n");
 
                         while(quit <= 0)
                         {
@@ -483,27 +481,27 @@ int menuOptions(clientInfo *info)               //VERIFICAR OS INDICES DO ARQUIV
             if (num%5==4)
             {
                 tipo[2290]='>';            tipo[2128]=' ';            tipo[1966]=' ';            tipo[1804]=' ';             tipo[1642]=' ';
-            }            
+            }
             for ( i = 0; i < 2592; i++)
             {
                 if(tipo[i]=='*')
                 {
                     printf(BLU"%c", tipo[i]);
-                    
+
                 }
                 else
                     if(tipo[i]=='>')
-                    {                        
-                        printf(YEL"%c", tipo[i]);                        
+                    {
+                        printf(YEL"%c", tipo[i]);
                     }
                     else
                         if (tipo[i]==':'||tipo[i]=='\\'||tipo[i]=='/'||tipo[i]=='.'||tipo[i]=='('||tipo[i]==')'||tipo[i]=='_'||tipo[i]=='-'||tipo[i]=='`')
                         {
-                            printf(RED"%c", tipo[i]);   
+                            printf(RED"%c", tipo[i]);
                         }
                         else
-                        {                        
-                            printf(RED"%c", tipo[i]);                        
+                        {
+                            printf(RED"%c", tipo[i]);
                         }
 
             }
@@ -564,27 +562,27 @@ int menuPrincipal(clientInfo info/*clientInfo info->nome, clientInfo info->mapa 
             {
                 tipo[2290]='>';            tipo[2128]=' ';            tipo[1966]=' ';            tipo[1804]=' ';             tipo[1642]=' ';
             }
-            
+
             for ( i = 0; i < 2592; i++)
             {
                 if(tipo[i]=='*')
                 {
                     printf(BLU"%c", tipo[i]);
-                    
+
                 }
                 else
                     if(tipo[i]=='>')
-                    {                        
-                        printf(YEL"%c", tipo[i]);                        
+                    {
+                        printf(YEL"%c", tipo[i]);
                     }
                     else
                         if (tipo[i]==':'||tipo[i]=='\\'||tipo[i]=='/'||tipo[i]=='.'||tipo[i]=='('||tipo[i]==')'||tipo[i]=='_'||tipo[i]=='-'||tipo[i]=='`')
                         {
-                            printf(RED"%c", tipo[i]);   
+                            printf(RED"%c", tipo[i]);
                         }
                         else
-                        {                        
-                            printf(RED"%c", tipo[i]);                        
+                        {
+                            printf(RED"%c", tipo[i]);
                         }
 
             }
@@ -603,7 +601,7 @@ int menuPrincipal(clientInfo info/*clientInfo info->nome, clientInfo info->mapa 
                     case 1: printf("Class Chosen: ");
                             printf(CYN"PALADINO");
                             printf(RESET"\n");
-                            break; 
+                            break;
                     case 2: printf("Class Chosen: ");
                             printf(CYN"LADRÃO");
                             printf(RESET"\n");
@@ -619,7 +617,7 @@ int menuPrincipal(clientInfo info/*clientInfo info->nome, clientInfo info->mapa 
                     case 5: printf("Class Chosen: ");
                             printf(CYN"GUERREIRO");
                             printf(RESET"\n");
-                            break;            
+                            break;
                 }
             else
             {
@@ -666,16 +664,16 @@ int selectClass()
             for ( i = 0; i<TamArq; i++)
                 printf(GRN"%c", tipo[i]);
             printf("\n\n");
-            printf(RED"\n\t\t\t*********************************\n");            
-            printf("\t\t\t*");     
-            printf(BLU);       
+            printf(RED"\n\t\t\t*********************************\n");
+            printf("\t\t\t*");
+            printf(BLU);
             printf(" guerreiro");
             printf(YEL" <-PALADINO-> ");
             printf(BLU"ladrao ");
             printf(RED"*\n");
             printf(RED"\t\t\t*********************************");
-            printf(RESET"\n");   
-            
+            printf(RESET"\n");
+
             fclose(arq);
         }
         if(num%5==1)
@@ -686,16 +684,16 @@ int selectClass()
             TamArq=1047;
             for ( i = 0; i<TamArq; i++)
                 printf(GRN"%c", tipo[i]);
-            printf(RED"\n\t\t\t*********************************\n");;            
-            printf("\t\t\t*");     
-            printf(BLU);           
+            printf(RED"\n\t\t\t*********************************\n");;
+            printf("\t\t\t*");
+            printf(BLU);
             printf(" paladino ");
             printf(YEL" <-LADRAO->");
             printf(BLU"  cacador ");
             printf(RED"*\n");
             printf(RED"\t\t\t*********************************");
-            printf(RESET"\n");  
-           
+            printf(RESET"\n");
+
             fclose(arq);
         }
         if(num%5==2)
@@ -706,16 +704,16 @@ int selectClass()
             TamArq=1608;
             for ( i = 0; i<TamArq; i++)
                 printf(GRN"%c", tipo[i]);
-            printf(RED"\n\t\t\t*********************************\n");            
-            printf("\t\t\t*");     
-            printf(BLU); 
+            printf(RED"\n\t\t\t*********************************\n");
+            printf("\t\t\t*");
+            printf(BLU);
             printf("   ladrao");
             printf(YEL"  <-CAÇADOR->  ");
             printf(BLU"mago   ");
             printf(RED"*\n");
             printf(RED"\t\t\t*********************************");
-            printf(RESET"\n");  
-            
+            printf(RESET"\n");
+
             fclose(arq);
         }
         if(num%5==3)
@@ -727,15 +725,15 @@ int selectClass()
             printf("\n");
             for ( i = 0; i<TamArq; i++)
                 printf(GRN"%c", tipo[i]);
-            printf(RED"\n\t\t\t*********************************\n");            
-            printf("\t\t\t*");     
-            printf(BLU);   
+            printf(RED"\n\t\t\t*********************************\n");
+            printf("\t\t\t*");
+            printf(BLU);
             printf(" cacador");
             printf(YEL"  <-MAGO->  ");
             printf(BLU"guerreiro  ");
             printf(RED"*\n");
             printf(RED"\t\t\t*********************************");
-            printf(RESET"\n"); 
+            printf(RESET"\n");
             fclose(arq);
         }
         if(num%5==4)
@@ -747,23 +745,23 @@ int selectClass()
             for ( i = 0; i<TamArq; i++)
                 printf(GRN"%c", tipo[i]);
             printf("\n\n");
-            
-            printf(RED"\n\t\t\t*********************************\n");            
+
+            printf(RED"\n\t\t\t*********************************\n");
             printf(RED"\t\t\t*");
             printf(BLU" mago");
             printf(YEL"  <-GUERREIRO->  ");
             printf(BLU"paladino ");
              printf(RED"*\n");
             printf("\t\t\t*********************************");
-            printf(RESET"\n"); 
+            printf(RESET"\n");
             fclose(arq);
         }
         usleep(500);
-        printf(RESET); 
+        printf(RESET);
         teste=getch();
         if (teste=='\n')
             if (num%5==0)
-                
+
                 return 1; //Retorna 1 se escolher PALADINO
             else
                 if (num%5==1)
@@ -776,9 +774,9 @@ int selectClass()
                             return 4;
                         else
                             return 5; //Retorna 5 se escolher MAGO
-                        printf(RESET); 
+                        printf(RESET);
     }
-    printf(RESET); 
+    printf(RESET);
 }
 
 void menuInstructions()
@@ -822,7 +820,7 @@ void menuInstructions()
 
 void MapGenerator()
 {
-    
+
     srand( (unsigned)time(NULL) );
 
     FILE *arquivodemapa;
@@ -862,7 +860,7 @@ void MapGenerator()
     {
         printf(RED"Valor Invalido! Digite outro valor.\n");
         printf(RESET"");
-        scanf("%d",&NL);   
+        scanf("%d",&NL);
     }
 
     printf("Digite a Largura do Mapa:\n");
@@ -871,7 +869,7 @@ void MapGenerator()
     {
         printf(RED"Valor invalido! Digite outro valor.\n");
         printf(RESET"");
-        scanf("%d",&NC);   
+        scanf("%d",&NC);
     }
 
     printf("Digite a quantidade de Monstros desejada no Mapa:\n");
@@ -904,10 +902,10 @@ void MapGenerator()
         for (j=1;j<(NC-1);j++)
         {
             x=rand()%8;
-            
-            if (x>2) 
+
+            if (x>2)
                 matriz[i][j]=' ';
-            else 
+            else
                 matriz[i][j]='*';
         }
     }
@@ -953,12 +951,12 @@ void MonsterFactory(int mapNumber , int num_mobs)
     sprintf(monstersfilename,"data/monstros%d.bin",mapNumber);
 
     MONSTER=fopen(monstersfilename,"wb");
-    
+
     for(i=0;i<num_mobs;i++)
-    {   
+    {
         if(i==num_mobs-1)
             printf(YEL "<Criando BOSS>\n");
-        else    
+        else
             printf(YEL "<Criando Monstro Numero [%d]>\n", i+1);
 
         printf(RESET"");
@@ -974,8 +972,8 @@ void MonsterFactory(int mapNumber , int num_mobs)
         printf(RED"Defesa: ");
         printf(RESET"");
         scanf("%d",&mobs->defesa);
-        
-        
+
+
         mobs->turn=0;
         mobs->fight=0;
         mobs->whofight=0;
